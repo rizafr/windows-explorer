@@ -1,0 +1,37 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+build/
+
+# environment
+.env
+.env.development
+.env.production
+.env.local
+.env.*.local
+apps/backend/.env
+apps/frontend/.env
+
+# keep example env files committed
+!.env.example
+!.env.development.example
+!.env.production.example
+
+# test output
+coverage/
+playwright-report/
+test-results/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
