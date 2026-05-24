@@ -63,6 +63,7 @@ Important variables:
 | `BACKEND_PORT` | Elysia listen port |
 | `FRONTEND_URL` | Allowed CORS origin for the backend |
 | `VITE_API_BASE_URL` | Frontend API base URL |
+| `DB_LOG_QUERY` | Set to `true` to print Drizzle SQL queries |
 
 The real `.env` file is ignored by Git. Commit changes to `.env.example` when the required variable list changes.
 
