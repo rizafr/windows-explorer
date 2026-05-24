@@ -248,7 +248,7 @@ The repository includes Dockerfiles for the backend and frontend. The current `d
 
 ### Home Page
 
-![Home Page](./docs/screenshoot/homepage.png
+![Home Page](./docs/screenshoot/homepage.png)
 
 ### Folder Tree
 
@@ -256,7 +256,7 @@ The repository includes Dockerfiles for the backend and frontend. The current `d
 
 ### Folder Contents
 
-![Folder Contents](./docs/screenshoot/folder-contents.png)
+![Folder Contents](./docs/screenshoot/folder-content.png)
 
 ### Search
 
