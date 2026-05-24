@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+coverage
+playwright-report
+test-results
+.env
+apps/backend/.env
+apps/frontend/.env
+*.log
+.DS_Store
+.git
+.gitignore
