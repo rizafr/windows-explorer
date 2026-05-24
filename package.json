@@ -11,6 +11,7 @@
         "build": "bun run --filter './apps/*' build",
         "test": "bun run --filter './apps/*' test",
         "db:migrate": "bun run --cwd apps/backend db:migrate",
-        "db:seed": "bun run --cwd apps/backend db:seed"
+        "db:seed": "bun run --cwd apps/backend db:seed",
+        "db:studio": "bun run --cwd apps/backend db:studio"
     }
 }
