@@ -7,17 +7,15 @@ build/
 
 # environment
 .env
-.env.development
-.env.production
-.env.local
-.env.*.local
-apps/backend/.env
-apps/frontend/.env
+.env.*
+apps/*/.env
+apps/*/.env.*
 
 # keep example env files committed
 !.env.example
-!.env.development.example
-!.env.production.example
+!.env.*.example
+!apps/*/.env.example
+!apps/*/.env.*.example
 
 # test output
 coverage/

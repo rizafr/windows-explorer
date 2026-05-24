@@ -7,11 +7,12 @@
         "apps/*"
     ],
     "scripts": {
-        "dev": "bun run --filter './apps/*' dev",
-        "build": "bun run --filter './apps/*' build",
-        "test": "bun run --filter './apps/*' test",
-        "db:migrate": "bun run --cwd apps/backend db:migrate",
-        "db:seed": "bun run --cwd apps/backend db:seed",
-        "db:studio": "bun run --cwd apps/backend db:studio"
+        "dev": "bun run --env-file=.env --filter './apps/*' dev",
+        "build": "bun run --env-file=.env --filter './apps/*' build",
+        "test": "bun run --env-file=.env --filter './apps/*' test",
+        "start:production": "bun run --env-file=.env --cwd apps/backend start",
+        "db:migrate": "bun run --env-file=.env --cwd apps/backend db:migrate",
+        "db:seed": "bun run --env-file=.env --cwd apps/backend db:seed",
+        "db:studio": "bun run --env-file=.env --cwd apps/backend db:studio"
     }
 }

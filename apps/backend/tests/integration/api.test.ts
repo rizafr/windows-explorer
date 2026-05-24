@@ -15,7 +15,9 @@ beforeAll(() => {
 })
 
 afterAll(async () => {
-  await app.stop()
+  if (app.server) {
+    await app.stop()
+  }
 })
 
 describe("GET /health", () => {
