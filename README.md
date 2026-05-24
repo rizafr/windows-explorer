@@ -242,3 +242,29 @@ Production uses the same `.env` filename. Set production values in the deploymen
 - Set `VITE_API_BASE_URL` to the deployed API path or URL
 
 The repository includes Dockerfiles for the backend and frontend. The current `docker-compose.yml` is focused on local PostgreSQL.
+
+
+## Screen Shoot
+
+### Home Page
+
+![Home Page](./docs/screenshoot/homepage.png
+
+### Folder Tree
+
+![Folder Tree](./docs/screenshoot/folder-tree.png)
+
+### Folder Contents
+
+![Folder Contents](./docs/screenshoot/folder-contents.png)
+
+### Search
+
+![Search](./docs/screenshoot/search.png)
+
+### Search Results
+
+![Search Results](./docs/screenshoot/main.png)
+
+### test 
+![Test](docs/test/image.png)
