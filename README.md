@@ -361,13 +361,25 @@ Swagger documentation is exposed at `/docs` when the backend is running.
 
 ## Architecture
 
-The backend follows a layered structure:
+The backend follows a layered, hexagonal-style architecture. HTTP routes act as inbound adapters, repository interfaces act as outbound ports, infrastructure repositories implement those ports, and application services coordinate business logic without depending directly on database details.
 
-- **Presentation**: Elysia route modules under `presentation/http/v1`
-- **Application**: business services and repository interfaces
-- **Infrastructure**: Drizzle database client, schema, migrations, and repository implementations
+- **Presentation / inbound adapters**: Elysia route modules under `presentation/http/v1`
+- **Application / use cases**: business services and repository interfaces
+- **Infrastructure / outbound adapters**: Drizzle database client, schema, migrations, and repository implementations
 - **Composition root**: `src/app.ts` wires repositories, services, routes, CORS, Swagger, and error handling
 - **Runtime entrypoint**: `src/index.ts` calls `app.listen`
+
+The backend mostly complies with hexagonal architecture, with one caveat: it is a hexagonal-style implementation, not a fully strict hexagonal architecture.
+
+| Area | Current Backend | Complies? |
+| --- | --- | --- |
+| Main idea | Application services do not talk directly to Drizzle; they depend on repository interfaces. | Yes |
+| Common folders | Uses `presentation`, `application`, and `infrastructure` instead of explicit `ports` and `adapters` folder names. | Mostly |
+| Dependency direction | Presentation and infrastructure depend inward on application services/interfaces. Application does not depend on infrastructure repositories. | Yes |
+| Database access | Drizzle lives in `infrastructure/db`, and DB repositories implement application interfaces. | Yes |
+| Interfaces | Repository interfaces exist in `application/repositories/*.interface.ts`. | Yes |
+| Testability | Services can be tested with mocked repositories. | Yes |
+| Replaceable adapters | Drizzle repositories could be replaced with another implementation without changing services. | Yes |
 
 The frontend is organized by feature:
 
