@@ -7,15 +7,19 @@
         "apps/*"
     ],
     "scripts": {
-        "dev": "bun run --env-file=.env --filter './apps/*' dev",
+        "dev": "bun run docker:up && bun run db:migrate && bun run --env-file=.env --filter './apps/*' dev",
         "build": "bun run --env-file=.env --filter './apps/*' build",
         "test": "bun run --env-file=.env --filter './apps/*' test",
         "test:e2e": "bun run --env-file=.env --cwd apps/frontend test:e2e",
         "test:e2e:ui": "bun run --env-file=.env --cwd apps/frontend test:e2e:ui",
         "playwright:install": "bunx playwright install chromium",
-        "start:production": "bun run --env-file=.env --cwd apps/backend start",
+        "start:production": "bun run docker:up && bun run db:migrate && bun run --env-file=.env --cwd apps/backend start",
+        "docker:up": "docker compose up -d",
+        "docker:down": "docker compose down",
+        "docker:logs": "docker compose logs -f postgres",
         "db:migrate": "bun run --env-file=.env --cwd apps/backend db:migrate",
         "db:seed": "bun run --env-file=.env --cwd apps/backend db:seed",
+        "db:setup": "bun run db:migrate && bun run db:seed",
         "db:studio": "bun run --env-file=.env --cwd apps/backend db:studio"
     }
 }

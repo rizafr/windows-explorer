@@ -84,8 +84,7 @@ docker compose up -d
 Run migrations and seed data:
 
 ```bash
-bun run db:migrate
-bun run db:seed
+bun run db:setup
 ```
 
 ## Development
@@ -95,6 +94,8 @@ Start backend and frontend together:
 ```bash
 bun run dev
 ```
+
+This starts the PostgreSQL Docker container first, runs database migrations, then starts the backend and frontend dev servers. It does not run the seed script automatically because seeding clears and recreates the sample data.
 
 Default local URLs:
 
@@ -114,6 +115,38 @@ When running app-level scripts directly, make sure the required environment vari
 
 ## Database
 
+Run PostgreSQL with Docker Compose:
+
+```bash
+bun run docker:up
+```
+
+Check database container status:
+
+```bash
+docker compose ps
+```
+
+View database logs:
+
+```bash
+bun run docker:logs
+```
+
+Stop the database:
+
+```bash
+bun run docker:down
+```
+
+Reset the local database volume:
+
+```bash
+docker compose down -v
+bun run docker:up
+bun run db:setup
+```
+
 Generate migrations after schema changes:
 
 ```bash
@@ -130,6 +163,12 @@ Seed the sample Windows Explorer data:
 
 ```bash
 bun run db:seed
+```
+
+Run migrations and seed data together:
+
+```bash
+bun run db:setup
 ```
 
 Open Drizzle Studio:
